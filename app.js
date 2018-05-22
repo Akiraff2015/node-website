@@ -7,8 +7,9 @@ var favicon = require('serve-favicon');
 var passport = require('passport');
 var session = require('express-session');
 var mongoose = require('mongoose');
+var config = require('./config.json');
 
-mongoose.connect('mongodb://localhost:/akiraff');
+mongoose.connect(config.db.url);
 
 var app = express();
 
@@ -24,7 +25,7 @@ app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'node_modules')));
 app.use(session({
-	secret:'akira',
+	secret: config.session.secret,
 	saveUninitialized: false,
 	resave: false
 }));
