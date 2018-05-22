@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<% include ./partials/header %>
+
+	<body>
+		<div class="container white-color">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Subject</th>
+						<th>Date Created</th>
+						<th>Message</th>
+					</tr>
+				</thead>
+				<tbody>
+				<% for (var msg of messages) { %>
+					<tr>
+						<td><%= msg.name %></td>
+						<td><%= msg.subject %></td>
+						<td><%= msg.dateCreated %></td>
+						<td><%= msg.message %></td>
+					</tr>
+				<% } %>
+				</tbodY>
+			</table>
+		</div>
+	</body>
+</html>

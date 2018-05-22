@@ -1,0 +1,97 @@
+body {
+  background-color: black !important;
+  font-family: 'Open Sans', sans-serif;
+}
+
+html, body {
+	height: 100%;
+}
+
+.default-style > span {
+	color: white;
+	font-weight: bold;
+	margin-right: 20px;
+}
+
+a {
+	color: white !important;
+}
+
+/*Input [command prompt]*/
+.cmd-input {
+	apperance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	
+	border-radius: 0;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	background-color: black;
+	border: none;
+
+	color: white;
+	font-weight: 700;
+
+	display: inline-block;
+	width: 380px;
+}
+
+button.cmd-button {
+	margin-top:20px;
+	border: none;
+	color: white;
+	padding 6px;
+	border-radius: 0 !important;
+	background-color: rgb(122, 201, 51);;
+}
+
+button.cmd-button:hover {
+	background-color: rgb(7, 137, 7);
+}
+
+.center {
+	display: block;
+	margin: auto 0;
+	width: 50%;
+}
+
+.table > tbody > tr > td {
+	border-top: none !important;
+	width: 195px;
+}
+
+.progress {
+	border-radius: 0 !important;
+	margin-bottom: 10px !important;
+	background-color: #f00 !important;
+}
+
+.progress-bar {
+	background-color: #00ff27 !important;
+}
+
+.form-control {
+	border-radius: 0 !important;
+}
+
+.badge {
+	color: #000 !important;
+	background-color: #fff !important;
+}
+
+.red-color > a {
+	color: red !important;
+}
+
+.margin-top-5px { margin-top: 5px; }
+.margin-top-15px { margin-top: 15px; }
+.margin-left-25px { margin-left: 25px; }
+.margin-left-30px { margin-left: 30px; }
+.white-color { color: white !important; }
+.red-color { color: red; }
+.text-bold { font-weight: 700; }
+.text-underline { text-decoration: underline; }
+.text-align-justify {text-align: justify;}
+.cmd-green-color { color: rgb(122, 201, 51); }
+.cmd-active-color { color: rgb(0, 255, 0) !important; }
+.cmd-blue-color { color: rgb(105, 159, 194); }

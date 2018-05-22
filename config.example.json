@@ -1,0 +1,10 @@
+{
+	"db": {
+		"url": "",
+		"username": "username",
+		"password": "password"
+	},
+	"session": {
+		"secret": "super secret session key here"
+	}
+}
