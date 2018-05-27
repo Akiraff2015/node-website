@@ -1,7 +1,6 @@
 $(function() {
-	const pages = ['#index', '#menu', '#portfolio', '#aboutme', '#skills', '#contact_me'];
-	
-	const page_key = {
+	const PAGE_KEY = {
+		'#index': {cmd: 'cd index'},
 		'#menu': {cmd: 'cd menu'},
 		'#portfolio': {cmd: 'cd portfolio'},
 		'#aboutme': {cmd: 'cd about_me'},
@@ -9,17 +8,14 @@ $(function() {
 		'#contact_me': {cmd: 'cd contact_me'}
 	};
 
-
-	function switchPage(cmd) {
-	 Object.keys(page_key).forEach(function(key, i, arr) {
-	 	if (cmd == page_key[key].cmd) resetInput(key);
-	 });
-	}
-
-	pages.forEach(val => $(val).css({'display': 'none'}));
+	Object.keys(PAGE_KEY).forEach(key => $(key).css({'display': 'none'}));
 	$('#index').css({'display': 'inline-block'});
 
-	function resetInput(selector) {
+	function switchPage(cmd) {
+	 Object.keys(PAGE_KEY).forEach(key => {if (cmd == PAGE_KEY[key].cmd) changePage(key)});
+	}
+
+	function changePage(selector) {
 		pages.forEach(val => $(val).css({'display': 'none'}));
 		$('.cmd-input').val('');
 		$(selector).css({'display':'inline-block'});
@@ -33,7 +29,6 @@ $(function() {
 		}
 	}
 
-
 	if ($('.cmd-input').keypress(function(e) {
 		if (e.which === 13) {
 			// Index page
@@ -45,6 +40,8 @@ $(function() {
 				$('.cmd-input').val('');
 				$('#index').css({'display': 'inline-block'});
 			}
+
+			// Magic! Only a magician knows what is going on here o.O??
 			switchPage(getInputValue());
 		}
 	}));
