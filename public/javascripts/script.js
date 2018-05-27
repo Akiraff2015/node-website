@@ -1,11 +1,14 @@
 $(function() {
-	$('#index').css({'display': 'none'});
-	$('#menu').css({'display': 'none'});
-	$('#portfolio').css({'display': 'none'});
-	$('#aboutme').css({'display': 'none'});
-	$('#skills').css({'display': 'none'});
-	$('#contact_me').css({'display': 'none'});
+	const pages = ['#index', '#menu', '#portfolio', '#aboutme', '#skills', '#contact_me'];
+	pages.forEach(val => $(val).css({'display': 'none'}));
+
 	$('#index').css({'display': 'inline-block'});
+
+	function resetInput(selector) {
+		pages.forEach(val => $(val).css({'display': 'none'}));
+		$('.cmd-input').val('');
+		$(selector).css({'display':'inline-block'});
+	}
 
 	function getInputValue() {
 		for (var i = 1; i < 7; i++) {
@@ -15,9 +18,6 @@ $(function() {
 		}
 	}
 
-	if ($('#contact_me').css('display') == 'inline-block') {
-		$('body').click(() => $('.cmd-input').focus());
-	}
 
 	if ($('.cmd-input').keypress(function(e) {
 		if (e.which === 13) {
@@ -27,79 +27,33 @@ $(function() {
 				getInputValue() == 'cd /root' ||
 				getInputValue() == 'cd ..') {
 
-				$('#menu').css({'display': 'none'});
-				$('#portfolio').css({'display': 'none'});
-				$('#aboutme').css({'display': 'none'});
-				$('#skills').css({'display': 'none'});
-				$('#contact_me').css({'display': 'none'});
-
 				$('.cmd-input').val('');
-				$('.cmd-input').focus();
 				$('#index').css({'display': 'inline-block'});
 			}
 
 			// Menu 
 			if (getInputValue() == 'cd menu') {
-				$('#index').css({'display': 'none'});
-				$('#portfolio').css({'display': 'none'});
-				$('#aboutme').css({'display': 'none'});
-				$('#skills').css({'display': 'none'});
-				$('#contact_me').css({'display': 'none'});
-
-				$('.cmd-input').val('');
-				$('.cmd-input').focus();
-				$('#menu').css({'display': 'inline-block'});
+				resetInput(pages[1]);
 			}
 
 			// Portfolio
 			else if (getInputValue() == 'cd portfolio') {
-				$('#index').css({'display': 'none'});
-				$('#menu').css({'display': 'none'});
-				$('#aboutme').css({'display': 'none'});
-				$('#skills').css({'display': 'none'});
-				$('#contact_me').css({'display': 'none'});
-
-				$('.cmd-input').val('');
-				$('.cmd-input').focus();
-				$('#portfolio').css({'display': 'inline-block'});
+				resetInput(pages[2]);
 			}
 
 			// About me
 			else if (getInputValue() == 'cd about_me') {
-				$('#index').css({'display': 'none'});
-				$('#menu').css({'display': 'none'});
-				$('#portfolio').css({'display': 'none'});
-				$('#skills').css({'display': 'none'});
-				$('#contact_me').css({'display': 'none'});
-
-				$('.cmd-input').val('');
-				$('.cmd-input').focus();
-				$('#aboutme').css({'display': 'inline-block'});
+				resetInput(pages[3]);
 			}
 
 			// Skills
 			else if (getInputValue() == 'cd skills') {
-				$('#index').css({'display': 'none'});
-				$('#menu').css({'display': 'none'});
-				$('#portfolio').css({'display': 'none'});
-				$('#aboutme').css({'display': 'none'});
-				$('#contact_me').css({'display': 'none'});
-
-				$('.cmd-input').val('');
-				$('.cmd-input').focus();
-				$('#skills').css({'display': 'inline-block'});
+				resetInput(pages[4]);
 			}
 
 			// Contact me
 			else if (getInputValue() == 'cd contact_me') {
-				$('#index').css({'display': 'none'});
-				$('#menu').css({'display': 'none'});
-				$('#portfolio').css({'display': 'none'});
-				$('#aboutme').css({'display': 'none'});
-				$('#skills').css({'display': 'none'});
-
-				$('.cmd-input').val('');
-				$('#contact_me').css({'display': 'inline-block'});
+				resetInput(pages[5]);
 			}
 		}
 	}));
