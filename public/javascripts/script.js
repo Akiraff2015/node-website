@@ -1,7 +1,22 @@
 $(function() {
 	const pages = ['#index', '#menu', '#portfolio', '#aboutme', '#skills', '#contact_me'];
-	pages.forEach(val => $(val).css({'display': 'none'}));
+	
+	const page_key = {
+		'#menu': {cmd: 'cd menu'},
+		'#portfolio': {cmd: 'cd portfolio'},
+		'#aboutme': {cmd: 'cd about_me'},
+		'#skills': {cmd: 'cd skills'},
+		'#contact_me': {cmd: 'cd contact_me'}
+	};
 
+
+	function switchPage(cmd) {
+	 Object.keys(page_key).forEach(function(key, i, arr) {
+	 	if (cmd == page_key[key].cmd) resetInput(key);
+	 });
+	}
+
+	pages.forEach(val => $(val).css({'display': 'none'}));
 	$('#index').css({'display': 'inline-block'});
 
 	function resetInput(selector) {
@@ -30,31 +45,7 @@ $(function() {
 				$('.cmd-input').val('');
 				$('#index').css({'display': 'inline-block'});
 			}
-
-			// Menu 
-			if (getInputValue() == 'cd menu') {
-				resetInput(pages[1]);
-			}
-
-			// Portfolio
-			else if (getInputValue() == 'cd portfolio') {
-				resetInput(pages[2]);
-			}
-
-			// About me
-			else if (getInputValue() == 'cd about_me') {
-				resetInput(pages[3]);
-			}
-
-			// Skills
-			else if (getInputValue() == 'cd skills') {
-				resetInput(pages[4]);
-			}
-
-			// Contact me
-			else if (getInputValue() == 'cd contact_me') {
-				resetInput(pages[5]);
-			}
+			switchPage(getInputValue());
 		}
 	}));
 });
